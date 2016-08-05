@@ -44,15 +44,15 @@ class ProdutoModel extends Model {
         }
         return $produto;
         
-    }  
-    
-    public function verProdutoCarrinho($id) {
+    }
+
+    public function verProdutoCarrinho($produtos = array()) {
         $array = array();
-        if (!empty($id)) {
-        $sql = "Select idprodutos, nome, imagem, preco, descricao, categoria_id From produtos WHERE idprodutos = '$id'";
-        $sql = $this->db->query($sql);
+        if (!empty($produtos)) {
+            $sql = "Select idprodutos, nome, imagem, preco, descricao, categoria_id From produtos WHERE idprodutos IN (".implode(', ', $produtos).")";
+            $sql = $this->db->query($sql);
             if ($sql->rowCount() > 0) {
-                $array = $sql->fetch();
+                $array = $sql->fetchAll();
             }
         }
         return $array;

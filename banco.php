@@ -9,6 +9,7 @@ class Banco {
     public function __construct($host, $dbname, $dbuser, $dbpass) {
         try {
             $this->pdo = new PDO("mysql:dbname=".$dbname.";host=".$host, $dbuser, $dbpass);
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             if($e->getMessage()) {
                 echo "O Banco de dados $dbname não existe";
@@ -17,7 +18,6 @@ class Banco {
     }
     
     public function query($sql) {
-        
         $query = $this->pdo->query($sql);
         $this->numRows = $query->rowCount();
         $this->array = $query->fetchAll();

@@ -119,5 +119,17 @@ class VendasModel extends Model {
                 }
             }
     }
-    
+
+    public function getVendas() {
+        $array = array();
+
+        $sql = "SELECT vendas.idvendas, usuarios.nome, vendas.valor, pagamentos.tipo, status_pagamento.status_pagamento FROM vendas 
+                LEFT JOIN usuarios ON vendas.usuario_id = usuarios.idusuarios LEFT JOIN pagamentos ON vendas.forma_pag = pagamentos.idpagamentos
+                LEFT JOIN status_pagamento ON status_pagamento.idstatus_pagamento = vendas.status_pag WHERE usuarios.nome IS NOT NULL ORDER BY vendas.idvendas ASC";
+        $sql = $this->db->query($sql);
+        if ($sql->rowCount() > 0) {
+            $array = $sql->fetchAll();
+        }
+        return $array;
+    }
 }

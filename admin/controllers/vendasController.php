@@ -1,16 +1,21 @@
 ﻿<?php
 
 class vendasController extends Controller {
+
+    protected $vendasModel;
     
     function __construct() {
         parent::__construct();
         LoginAdminHelper::isLoogedAdmin();
+        $this->vendasModel = new VendasModel();
     }
 
     public function index() {
-        $dados = array();
+        $dados = array('vendas'=>array());
+        $dados['vendas'] = $this->vendasModel->getVendas();
 
-        //$this->loadTemplate('');
+
+        $this->loadTemplate('vendasView', $dados);
     }
 
 }

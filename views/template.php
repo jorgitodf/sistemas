@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="/assets/fonts/glyphicons-halflings-regular.ttf" media="all" />
     <script src="assets/js/jquery-3.1.0.min.js"></script>
     <script src="assets/js/carrinho.js"></script>
+    <script src="assets/js/menu.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 <main>
     <header class="topo navbar-fixed-top">
     </header>
-
-    <nav class="navbar nav navbar-inverse nav-pills navbar-fixed-top" id="nav-menu">
+    <button class="menu-abrir">Abre Menu</button>
+    <nav class="navbar nav navbar-inverse barra-nav nav-pills navbar-fixed-top" id="nav-menu">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
@@ -45,6 +46,7 @@
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
+
     </nav>
 
     <section class="row-fluid col-md-10 col-xs-12">

@@ -16,11 +16,16 @@ class carrinhoController extends Controller {
     }
 
     public function index() {
-        $dados = array('produtos'=>'');
-        unset($_SESSION['carrinho']);
-
+        $dados = array();
+        $ids = array();
+        $produtos = array();
+        //unset($_SESSION['carrinho']);
         if (count($_SESSION['carrinho']) > 0) {
-            $dados['produtos'] = $_SESSION['carrinho'];
+            $produtos = $_SESSION['carrinho'];
+            $ids = array_keys($produtos);
+        }
+        if (!empty($produtos)) {
+            $dados['produtos'] = $this->produtoModel->verProdutoCarrinho($ids);
             $this->loadTemplate("carrinhoView", $dados);
         } else {
             header("Location: /");
@@ -29,21 +34,12 @@ class carrinhoController extends Controller {
 
     public function add($id = "") {
         if (!empty($id)) {
-            if (!isset($_SESSION['carrinho'])) {
-                $_SESSION['carrinho'][] = "";
-                $_SESSION['carrinho'][] = $this->produtoModel->verProdutoCarrinho($id);
-                array_shift($_SESSION['carrinho']);
-                $array = array('quantidade' => 1);
-                foreach ($_SESSION['carrinho'] as $i => $value) {
-                    $c = array_merge($_SESSION['carrinho'][$i], $array);
-                }
 
+            if (!isset($_SESSION['carrinho'][$id])) {
+                $_SESSION['carrinho'][$id] = 1;
+            } else {
+                $_SESSION['carrinho'][$id] += 1;
             }
-
-            echo "<pre>";
-            print_r($c);
-            echo "<pre>";
-            exit;
             header("Location: /carrinho");
         }
 

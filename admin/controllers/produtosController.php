@@ -3,10 +3,12 @@
 class produtosController extends Controller {
 
     public $produtosModel;
+    protected $categoriasModel;
 
     function __construct() {
         parent::__construct();
         $this->produtosModel = new ProdutosModel();
+        $this->categoriasModel = new CategoriasModel();
         LoginAdminHelper::isLoogedAdmin();
     }
 
@@ -30,13 +32,57 @@ class produtosController extends Controller {
     }
     
     public function adicionar() {
-        $dados = array();
+        $dados = array('categorias'=>array());
+        $dados['categorias'] = $this->categoriasModel->getCategorias();
 
+        if(isset($_POST['nome_produto']) && !empty($_POST['nome_produto']) && isset($_FILES['imagem']) && !empty($_FILES['imagem']['tmp_name'])) {
+            $nome = addslashes($_POST['nome_produto']);
+            $descricao = addslashes($_POST['descricao']);
+            $categoria = addslashes($_POST['categoria']);
+            $preco = addslashes($_POST['preco']);
+            $quantidade = addslashes($_POST['quantidade']);
+            $imagem = $_FILES['imagem'];
+
+            if(in_array($imagem['type'], array('image/jpeg', 'image/jpg'))) {
+                $md5imagem = md5(time().rand(0,9999)).'.jpg';
+                move_uploaded_file($imagem['tmp_name'], '../assets/images/produtos/'.$md5imagem);
+                $this->produtosModel->inserirProduto($nome, $descricao, $categoria, $preco, $quantidade, $md5imagem);
+
+                header("Location: /admin/produtos");
+            }
+        }
+
+        $this->loadTemplate('produtos_addView', $dados);
     }     
     
     public function editar($id) {
-        $dados = array();
+        $dados = array('categorias' => array(), 'produto' => array());
+        $dados['categorias'] = $this->categoriasModel->getCategorias();
+        $dados['produto'] = $this->produtosModel->getProduto($id);
 
+        if(isset($_POST['nome_produto']) && !empty($_POST['nome_produto'])) {
+            $nome = addslashes($_POST['nome_produto']);
+            $descricao = addslashes($_POST['descricao']);
+            $categoria = addslashes($_POST['categoria']);
+            $preco = addslashes($_POST['preco']);
+            $quantidade = addslashes($_POST['quantidade']);
+            $precoFormat = number_format((double)$preco, 2, '.', '');
+
+            $this->produtosModel->updateProduto($nome, $precoFormat, $quantidade, $descricao, $categoria, $id);
+
+            if(isset($_FILES['imagem']) && !empty($_FILES['imagem']['tmp_name'])) {
+                $imagem = $_FILES['imagem'];
+
+                if(in_array($imagem['type'], array('image/jpeg', 'image/jpg'))) {
+                    $md5imagem = md5(time().rand(0,9999)).'.jpg';
+                    move_uploaded_file($imagem['tmp_name'], '../assets/images/produtos/'.$md5imagem);
+                    $this->produtosModel->updateImagem($id, $md5imagem);
+                }
+            }
+
+            header("Location: /admin/produtos");
+        }
+        $this->loadTemplate('produtos_editView', $dados);
     } 
     
     public function remover($id) {
