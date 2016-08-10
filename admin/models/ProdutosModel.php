@@ -29,7 +29,7 @@ class ProdutosModel extends Model {
 
     public function inserirProduto($nome, $descricao, $categoria, $preco, $quantidade, $md5imagem) {
 
-        $sql = "INSERT INTO produtos (`nome`, `imagem`, `preco`, `quantidade`, `descricao`,  `categoria_id`) VALUES ('$nome', '$md5imagem','$preco', 
+        $sql = "INSERT INTO produtos (`nome`, `imagem`, `preco`, `quantidade`, `descricao`, `categoria_id`) VALUES ('$nome', '$md5imagem','$preco', 
                 '$quantidade', '$descricao', '$categoria')";
         $this->db->query($sql);
     }
@@ -46,8 +46,8 @@ class ProdutosModel extends Model {
     
     public function updateProduto($nome, $preco, $quantidade, $descricao, $categoria, $id) {
         if (!empty($id) && !empty($nome) && !empty($descricao) && !empty($categoria) && !empty($preco) && !empty($quantidade)) {
-            $sql = "UPDATE produtos SET nome = '$nome', preco = $preco, quantidade = '$quantidade', descricao = '$descricao', 
-                    categoria = '$categoria' WHERE idprodutos = '$id')";
+            $sql = "UPDATE produtos SET nome = '$nome', preco = '$preco', quantidade = '$quantidade', descricao = '$descricao', 
+                    categoria_id = '$categoria' WHERE idprodutos = '$id'";
             $this->db->query($sql);
         }
     }

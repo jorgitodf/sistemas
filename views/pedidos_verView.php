@@ -1,5 +1,5 @@
 
-    <aside class="row-fluid container container-resumo-pedido-detalhe">
+    <aside class="row-fluid container container-resumo-pedido-detalhe col-md-12 col-lg-12 col-sm-8 col-xs-12">
         <h2>Detalhes do Pedido Nº <?php echo isset($idvenda) ? $idvenda : ""; ?></h2>
         <div class="table-responsive">
             <table class="table table-striped table-hover" width="100%">

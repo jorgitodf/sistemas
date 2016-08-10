@@ -1,6 +1,6 @@
 
-    <aside class="row-fluid container-contato container col-md-12 col-xs-12 col-sm-8 col-xs-10">
-        <div class="row-fluid">
+    <aside class="row-fluid container container-contato col-md-12 col-lg-12 col-sm-8 col-xs-12">
+        <div class="row-fluid col-xs-12">
         <h2>Contato</h2>
         <form method="POST" action="">
             <div class="form-group">
@@ -15,10 +15,9 @@
 
                 <input type="submit" value="Enviar Mensagem" class="btn btn-primary"/>
             </div>
-            <div class="form-group msg-email-sucesso">
-
+            <div class="msg-email-sucesso col-xs-12">
                 <?php if(!empty($msg)):?>
-                    <div class="aviso alert alert-success"><?php echo $msg; ?></div>
+                    <span class="alert alert-success"><?php echo $msg; ?></span>
                 <?php endif;?>
 
             </div>

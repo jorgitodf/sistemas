@@ -6,7 +6,7 @@
             <div class="form-group">
                 <label for="nome_produto" class="col-sm-2 control-label">Nome</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name="nome_produto" id="nome_produto" value="<?php echo $produto['nome']; ?>">
+                    <input type="text" class="form-control" name="nome_produto" value="<?php echo $produto['nome']; ?>">
                 </div>
             </div>
             <div class="form-group">

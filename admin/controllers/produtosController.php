@@ -66,9 +66,8 @@ class produtosController extends Controller {
             $categoria = addslashes($_POST['categoria']);
             $preco = addslashes($_POST['preco']);
             $quantidade = addslashes($_POST['quantidade']);
-            $precoFormat = number_format((double)$preco, 2, '.', '');
 
-            $this->produtosModel->updateProduto($nome, $precoFormat, $quantidade, $descricao, $categoria, $id);
+            $this->produtosModel->updateProduto($nome, $preco, $quantidade, $descricao, $categoria, $id);
 
             if(isset($_FILES['imagem']) && !empty($_FILES['imagem']['tmp_name'])) {
                 $imagem = $_FILES['imagem'];

@@ -12,7 +12,7 @@ class homeController extends Controller {
         $dados = array();
         
         $produtos = new ProdutoModel();
-        $dados['produtos'] = $produtos->listarProdutos(15);
+        $dados['produtos'] = $produtos->listarProdutos(10);
 
         $this->loadTemplate('homeView', $dados);
         

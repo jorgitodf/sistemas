@@ -16,9 +16,7 @@
 
 
             <?php foreach($produtos as $key => $produto): ?>
-            <?php print_r($produtos);exit; ?>
-            <?php endforeach ?>
-                <?php exit; ?>
+
                 <tr>
                 <td><img class="img-responsive" src="/assets/images/produtos/<?php echo $produto['imagem']; ?>" border="0" height="60" width="60" /></td>
                 <td><?php echo $produto['nome']; ?></td>
@@ -31,6 +29,7 @@
                 <td><span class="total"></span></td>
                 <td><a class="btn btn-default btn-mini" style="width: 45px; height: 35px" href="/carrinho/del/<?php echo $produto['idprodutos']; ?>" title="Remover Item"><i class="glyphicon glyphicon glyphicon-remove-circle" style="font-size: 20px; color: red" ></i></a></td>
             </tr>
+            <?php endforeach ?>
             <?php $subtotal += $produto['preco']; ?>
 
             <tr>
