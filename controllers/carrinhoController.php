@@ -74,7 +74,7 @@ class carrinhoController extends Controller {
     public function finalizar() {
         $dados = array();
 
-        $this->loadTemplate("finalizar_compraView", $dados);
+        $this->loadTemplate("identificacaoView", $dados);
     }
 
     public function obrigado() {

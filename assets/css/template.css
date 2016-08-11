@@ -294,7 +294,7 @@ th {
 .container-login {
     background-color: white;
     width: 100%;
-    height: 500px;
+    height: 550px;
     position: absolute;
     right: 11%;
     left: 11%;
@@ -303,7 +303,7 @@ th {
 
 .container-finalizar-compra {
     width: 100%;
-    height: 500px;
+    height: 550px;
     margin-left: 10%;
     left: 10%;
     margin-top: 16.4%;
@@ -323,32 +323,43 @@ th {
 #telefone {
     width: 30%;
 }
+#ddd-cel {
+    width: 10%;
+}
+#celular {
+    width: 30%;
+}
 .div-telefone {
     float: left;
 }
 #nome {
     width: 80%;
 }
-#email-finalizar {
+#rg-finalizar {
     width: 80%;
 }
-#senha-finalizar {
+#orgao_expedidor {
+    width: 80%;
+}
+#data_nascimento {
     width: 80%;
 }
 #logradouro {
     width: 80%;
 }
-#endereco {
+#log_descricao {
     width: 80%;
 }
 #complemento {
-    width: 120%;
+    width: 130%;
 }
 .div-complemento {
     float: left;
 }
 .div-numero {
-    float: right;
+    float: left;
+    margin-left: 35%;
+
 }
 #numero {
     width: 45%;
@@ -359,9 +370,11 @@ th {
 }
 .div-cep {
     float: left;
+
 }
 .div-bairro {
     float: left;
+    margin-left: 12%;
 }
 #bairro {
     width: 120%;
@@ -374,20 +387,34 @@ th {
     float: left;
 }
 .div-uf {
-    float: right;
+    float: left;
+    margin-left: 40%;
 }
 #uf {
-    width: 45%;
+    width: 120%;
 }
 
 
 .dados-usuario {
-    float: left;
+    margin-left: 8%;
 }
 .dados-usuario-endereco {
-    float: left;
+
 }
 
+
+/* VIEW IDENTIFICAÇÃO */
+.div-sem-cadastro {
+    width: 100%;
+    float: left;
+    margin-left: 5%;
+
+}
+.div-com-cadastro {
+    width: 100%;
+    float: right;
+    margin-left: 6%;
+}
 
 
 .rodape {
