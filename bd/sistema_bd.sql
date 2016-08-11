@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
 -- Host: localhost    Database: sistema
 -- ------------------------------------------------------
--- Server version	5.7.12-log
+-- Server version	5.7.14-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -159,10 +159,10 @@ DROP TABLE IF EXISTS `orgao_expedidores`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `orgao_expedidores` (
-  `idorgao_expedidores` smallint(5) unsigned NOT NULL,
+  `idorgao_expedidores` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `orgao_expedidor` varchar(130) NOT NULL,
   PRIMARY KEY (`idorgao_expedidores`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -171,6 +171,7 @@ CREATE TABLE `orgao_expedidores` (
 
 LOCK TABLES `orgao_expedidores` WRITE;
 /*!40000 ALTER TABLE `orgao_expedidores` DISABLE KEYS */;
+INSERT INTO `orgao_expedidores` VALUES (1,'ABNC – Academia Brasileira de Neurocirurgia'),(2,'CBM - Corpo de Bombeiros Militar'),(3,'CGPI – Coordenação-Geral de Privilégios e Imunidades'),(4,'CGPI/DUREX/DPF – Coordenação Geral de Polícia de Imigração da Polícia Federal'),(5,'CGPMAF – Coordenadoria Geral de Polícia Marítima, Aeronáutica e de Fronteiras'),(6,'CNIG – Conselho Nacional de Imigração'),(7,'CNT - Carteira Nacional de Habilitação'),(8,'CORECON - Conselho Regional de Economia'),(9,'COREN – Conselho Regional de Enfermagem'),(10,'CRA - Conselho Regional de Administração'),(11,'CRAS – Conselho Regional de Assistentes Sociais'),(12,'CRB – Conselho Regional de Biblioteconomia'),(13,'CRC – Conselho Regional de Contabilidade'),(14,'CRE – Conselho Regional de Estatística'),(15,'CREA – Conselho Regional de Engenharia, Arquitetura e Agronomia'),(16,'CRECI – Conselho Regional de Corretores de Imóveis'),(17,'CREFIT – Conselho Regional de Fisioterapia e Terapia Ocupacional'),(18,'CRF - Conselho Regional de Farmácia'),(19,'CRM-AC - Conselho Regional de Medicina do Estado do Acre'),(20,'CRM-AL - Conselho Regional de Medicina do Estado de Alagoas'),(21,'CRM-AP - Conselho Regional de Medicina do Estado do Amapá'),(22,'CRM-AM - Conselho Regional de Medicina do Estado do Amazonas'),(23,'CRM-BA - Conselho Regional de Medicina do Estado da Bahia'),(24,'CRM-CE - Conselho Regional de Medicina do Estado do Ceará'),(25,'CRM-DF - Conselho Regional de Medicina Distrito Federal'),(26,'CRM-ES - Conselho Regional de Medicina do Estado do Espírito Santo'),(27,'CRM-GO - Conselho Regional de Medicina do Estado do Goiás'),(28,'CRM-MA - Conselho Regional de Medicina do Estado do Maranhão'),(29,'CRM-MT - Conselho Regional de Medicina do Estado do Mato Grosso'),(30,'CRM-MS - Conselho Regional de Medicina do Estado do Mato Grosso do Sul'),(31,'CRM-MG - Conselho Regional de Medicina do Estado de Minas Gerais'),(32,'CRM-PA - Conselho Regional de Medicina do Estado do Pará'),(33,'CRM-PB - Conselho Regional de Medicina do Estado da Paraíba'),(34,'CRM-PR - Conselho Regional de Medicina do Estado do Paraná'),(35,'CRM-PE - Conselho Regional de Medicina do Estado do Pernambuco'),(36,'CRM-PI - Conselho Regional de Medicina do Estado do Piauí'),(37,'CRM-RJ - Conselho Regional de Medicina do Estado do Rio de Janeiro'),(38,'CRM-RN - Conselho Regional de Medicina do Estado do Rio Grande do Norte'),(39,'CRM-RS - Conselho Regional de Medicina do Estado do Rio Grande do Sul'),(40,'CRM-RO - Conselho Regional de Medicina do Estado de Rondônia'),(41,'CRM-RR - Conselho Regional de Medicina do Estado de Roraima'),(42,'CRM-SC - Conselho Regional de Medicina do Estado de Santa Catarina'),(43,'CRM-SP - Conselho Regional de Medicina do Estado de São Paulo'),(44,'CRM-SE - Conselho Regional de Medicina do Estado de Sergipe'),(45,'CRM-TO - Conselho Regional de Medicina do Estado de Tocantins'),(46,'CRMV – Conselho Regional de Medicina Veterinária'),(47,'CRN – Conselho Regional de Nutrição'),(48,'CRO - Conselho Regional de Odontologia'),(49,'CRP – Conselho Regional de Psicologia'),(50,'CRPRE – Conselho Regional de Profissionais de Relações Públicas'),(51,'CRQ – Conselho Regional de Química'),(52,'CRRC – Conselho Regional de Representantes Comerciais'),(53,'CSC - Carteira Sede Carpina de Pernambuco'),(54,'CTPS – Carteira de Trabalho e Previdência Social'),(55,'DIC - Diretoria de Identificação Civil'),(56,'DIREX – Diretoria-Executiva'),(57,'DPMAF – Divisão de Polícia Marítima, Área e de Fronteiras'),(58,'DPT – Departamento de Polícia Técnica Geral'),(59,'DST – Programa Municipal DST/Aids'),(60,'FGTS - Fundo de Garantia do Tempo de Serviço'),(61,'FIPE – Fundação Instituto de Pesquisas Econômicas'),(62,'FLS - Fundação Lyndolpho Silva'),(63,'GOVGO - Governo do Estado de Goiás'),(64,'I CLA – Carteira de Identidade Classista'),(65,'IFP - Instituto Félix Pacheco'),(66,'IGP – Instituto Geral de Perícias'),(67,'IIMG - Inter-institutional Monitoring Group'),(68,'IML - Instituto Médico-Legal'),(69,'IPC - Índice de Preços ao Consumidor'),(70,'IPF - Instituto Pereira Faustino'),(71,'MAE - Ministério da Aeronáutica'),(72,'MEX - Ministério do Exército'),(73,'MMA - Ministério da Marinha'),(74,'MTE - Ministério do Trabalho e Emprego'),(75,'OAB - Ordem dos Advogados do Brasil'),(76,'OMB – Ordens dos Músicos do Brasil'),(77,'PC - Policia Civil'),(78,'PM - Polícia Militar'),(79,'PF - Polícia Federal'),(80,'DPF - Polícia Federal'),(81,'SDS – Secretaria de Defesa Social'),(82,'SECC – Secretaria de Estado da Casa Civil'),(83,'SEJUSP – Secretaria de Estado de Justiça e Segurança Pública'),(84,'SES - Carteira de Estrangeiro'),(85,'SES ou EST - Carteira de Estrangeiro'),(86,'SESP – Secretaria de Estado da Segurança Pública'),(87,'SJS - Secretaria da Justiça e Segurança'),(88,'SJTC – Secretaria da Justiça do Trabalho e Cidadania'),(89,'SNJ – Secretaria Nacional de Justiça / Departamento de Estrangeiros'),(90,'SPTC - Secretaria de Polícia Técnico-Científica'),(91,'SSP - Secretaria de Segurança Pública'),(92,'ZZZ - Outros (inclusive exterior)');
 /*!40000 ALTER TABLE `orgao_expedidores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -293,7 +294,7 @@ CREATE TABLE `tp_logradouros` (
   `idtp_logradouros` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
   `tp_logradouro` varchar(45) NOT NULL,
   PRIMARY KEY (`idtp_logradouros`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -302,6 +303,7 @@ CREATE TABLE `tp_logradouros` (
 
 LOCK TABLES `tp_logradouros` WRITE;
 /*!40000 ALTER TABLE `tp_logradouros` DISABLE KEYS */;
+INSERT INTO `tp_logradouros` VALUES (1,'Aeroporto'),(2,'Alameda'),(3,'Área'),(4,'Avenida'),(5,'Balneário'),(6,'Bosque'),(7,'Calçada'),(8,'Campo'),(9,'Chácara'),(10,'Colônia'),(11,'Condomínio'),(12,'Conjunto'),(13,'Distrito'),(14,'Esplanada'),(15,'Estação'),(16,'Estrada'),(17,'Favela'),(18,'Feira'),(19,'Ferrovia'),(20,'Jardim'),(21,'Ladeira'),(22,'Lago'),(23,'Lagoa'),(24,'Largo'),(25,'Loteamento'),(26,'Morro'),(27,'Núcleo'),(28,'Parque'),(29,'Passarela'),(30,'Pátio'),(31,'Praça'),(32,'Quadra'),(33,'Recanto'),(34,'Residencial'),(35,'Rodovia'),(36,'Rua'),(37,'Serra'),(38,'Setor'),(39,'Sítio'),(40,'Travessa'),(41,'Trecho'),(42,'Trevo'),(43,'Vale'),(44,'Vereda'),(45,'Via'),(46,'Viaduto'),(47,'Viela'),(48,'Vila'),(49,'Outro');
 /*!40000 ALTER TABLE `tp_logradouros` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -316,7 +318,7 @@ CREATE TABLE `ufs` (
   `idufs` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   `uf` char(2) NOT NULL,
   PRIMARY KEY (`idufs`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -325,6 +327,7 @@ CREATE TABLE `ufs` (
 
 LOCK TABLES `ufs` WRITE;
 /*!40000 ALTER TABLE `ufs` DISABLE KEYS */;
+INSERT INTO `ufs` VALUES (1,'AC'),(2,'AL'),(3,'AP'),(4,'AM'),(5,'BA'),(6,'CE'),(7,'DF'),(8,'ES'),(9,'GO'),(10,'MA'),(11,'MT'),(12,'MS'),(13,'MG'),(14,'PA'),(15,'PB'),(16,'PR'),(17,'PE'),(18,'PI'),(19,'RJ'),(20,'RN'),(21,'RS'),(22,'RO'),(23,'RR'),(24,'SC'),(25,'SP'),(26,'SE'),(27,'TO');
 /*!40000 ALTER TABLE `ufs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -436,4 +439,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-11  0:02:24
+-- Dump completed on 2016-08-11 10:43:19

@@ -5,7 +5,7 @@ class Core {
     public function run() {
         $url = explode('index.php', $_SERVER['PHP_SELF']);
         $url = end($url);
-        
+
         $params = array();
         if (!empty($url)) {
             $url = explode('/', $url);

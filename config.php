@@ -8,7 +8,7 @@ if (ENVIRONMENT == 'development') {
     $config['dbname'] = 'sistema';
     $config['host'] = 'localhost';
     $config['dbuser'] = 'root';
-    $config['dbpass'] = 'camelo69';
+    $config['dbpass'] = 'root';
 } else {
     $config['dbname'] = 'sistema';
     $config['host'] = 'localhost';

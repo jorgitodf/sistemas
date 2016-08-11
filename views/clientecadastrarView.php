@@ -15,7 +15,7 @@
                     <div class="form-group form-group-sm">
                         <label for="orgao_expedidor" class="control-label">Órgão Expedidor:</label>
                         <select class="form-control input-sm" name="orgao_expedidor" id="orgao_expedidor" >
-
+                            <?php echo $orgaosExpedidores; ?>
                         </select>
                     </div>
                     <div class="form-group form-group-sm">
@@ -37,6 +37,7 @@
                     <div class="form-group form-group-sm">
                         <label for="logradouro" class="control-label">Tipo Logradouro:</label>
                         <select class="form-control input-sm" name="logradouro" id="logradouro">
+                            <?php echo $tipoLogradouros; ?>
                         </select>
                     </div>
                     <div class="form-group form-group-sm">
@@ -66,7 +67,7 @@
                     <div class="form-group form-group-sm div-uf">
                         <label for="uf" class="control-label">UF:</label>
                         <select class="form-control input-sm" name="uf" id="uf">
-                            {!!$uf!!}
+                            <?php echo $ufs; ?>
                         </select>
                     </div>
 
