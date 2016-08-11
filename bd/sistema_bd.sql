@@ -348,7 +348,7 @@ CREATE TABLE `usuarios` (
   `rg` varchar(10) DEFAULT NULL,
   `data_nascimento` date DEFAULT NULL,
   `data_cadastro` datetime DEFAULT NULL,
-  `id_orgao_expedidores` smallint(5) unsigned NOT NULL,
+  `id_orgao_expedidores` smallint(5) unsigned DEFAULT NULL,
   PRIMARY KEY (`idusuarios`),
   KEY `fk_usuarios_orgao_expedidores1_idx` (`id_orgao_expedidores`) USING BTREE,
   CONSTRAINT `fk_usuarios_orgao_expedidores1` FOREIGN KEY (`id_orgao_expedidores`) REFERENCES `orgao_expedidores` (`idorgao_expedidores`) ON UPDATE CASCADE
@@ -361,7 +361,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Jorgito',00000000000,'jorgito@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(2,'Jorge Toledo',00000000000,'jorge@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(3,'Jorgito',00000000000,'jspaiva.1977@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(4,'Thadeu',00000000000,'exemplo@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(5,'Thadeu',00000000000,'siscadcons@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(6,'Carlos',00000000000,'algumemail@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(7,'Comprador',00000000000,'comprador@gmail.com','e10adc3949ba59abbe56e057f20f883e','Cliente',NULL,NULL,NULL,0),(8,'Cláudio',00000000000,'claudio@gmail.com','e10adc3949ba59abbe56e057f20f883e','Admin',NULL,NULL,NULL,0),(9,'Admin',00000000000,'admin@gmail.com','e10adc3949ba59abbe56e057f20f883e','Admin',NULL,NULL,NULL,0),(10,'Jorgito',00000000000,'454545454@gmail.com','e10adc3949ba59abbe56e057f20f883e','Cliente',NULL,NULL,NULL,0);
+INSERT INTO `usuarios` VALUES (1,'Jorgito',00000000000,'jorgito@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(2,'Jorge Toledo',00000000000,'jorge@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(3,'Jorgito',00000000000,'jspaiva.1977@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(4,'Thadeu',00000000000,'exemplo@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(5,'Thadeu',00000000000,'siscadcons@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(6,'Carlos',00000000000,'algumemail@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(7,'Comprador',00000000000,'comprador@gmail.com','e10adc3949ba59abbe56e057f20f883e','Cliente',NULL,NULL,NULL,0),(8,'Cláudio',00000000000,'claudio@gmail.com','e10adc3949ba59abbe56e057f20f883e','Admin',NULL,NULL,NULL,0),(9,'Admin',00000000000,'admin@gmail.com','e10adc3949ba59abbe56e057f20f883e','Admin',NULL,NULL,NULL,0),(10,'Jorgito',80260276120,'454545454@gmail.com','e10adc3949ba59abbe56e057f20f883e','Cliente',NULL,NULL,NULL,0);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -439,4 +439,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-11 10:43:19
+-- Dump completed on 2016-08-11 17:12:50

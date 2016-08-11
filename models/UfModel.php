@@ -12,7 +12,7 @@ class UfModel extends Model
         $sql = "SELECT idufs, uf FROM ufs";
         $sql = $this->db->query($sql);
         if ($sql->rowCount() > 0) {
-            $array = $sql->fetchAll();
+            $array = $sql->fetchALL(PDO::FETCH_ASSOC);
         }
         return $array;
     }

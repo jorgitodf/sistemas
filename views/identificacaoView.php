@@ -26,22 +26,25 @@
         </div>
 
         <div class="div-com-cadastro col-sm-5">
-            <form method="POST" action="../cliente/cadastrar" id="form-sem-cadastro">
+            <form method="POST" action="../cliente" id="form-sem-cadastro">
                 <div class="panel panel-warning">
                     <div class="panel-heading">
                         <h3 class="panel-title">Não possuo cadastro</h3>
                     </div>
                     <div class="panel-body">
                         <div class="form-group">
-                            <label class="" for="email">CPF:</label>
-                            <input type="text" name="email" id="cpf-sem-cadastro" class="form-control input-sm"/>
+                            <label class="" for="cpf-sem-cadastro">CPF:</label>
+                            <input type="text" name="cpf-sem-cadastro" id="cpf-sem-cadastro" class="form-control input-sm" value="<?php echo !empty($cpf) ? $cpf : '' ; ?>"/>
+                            <?php echo !empty($erroCpf) ? $erroCpf : "" ?>
                         </div>
                         <div class="form-group">
-                            <label class="" for="senha">E-mail:</label>
-                            <input type="email" name="senha" id="email-com-cadastro" class="form-control input-sm"/>
+                            <label class="" for="email-sem-cadastro">E-mail:</label>
+                            <input type="email" name="email-sem-cadastro" id="email-sem-cadastro" class="form-control input-sm" value="<?php echo !empty($email) ? $email : '' ; ?>"/>
+                            <?php echo !empty($erroEmail) ? $erroEmail : "" ?></span>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Cadastrar</button>
+                            <?php echo !empty($cpfAviso) ? $cpfAviso : "" ?>
                         </div>
                     </div>
                 </div>

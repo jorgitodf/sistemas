@@ -36,6 +36,18 @@ class UsuarioModel extends Model{
         }
         return $idUser;
     }
+
+    public function verificaCpf($cpf) {
+        if (!empty($cpf)) {
+            $sql = "Select cpf From usuarios WHERE cpf = '$cpf'";
+        }
+        $sql = $this->db->query($sql);
+        if ($sql->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
 }
 

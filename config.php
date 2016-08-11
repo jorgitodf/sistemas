@@ -16,3 +16,17 @@ if (ENVIRONMENT == 'development') {
     $config['dbpass'] = 'camelo69';    
 }
 
+
+/*
+    Configuraçao do Virtual Host do Apache
+
+    C:\xampp\apache\conf\extra\httpd-vhosts.conf
+
+    ##NameVirtualHost localhost:80
+    ##<VirtualHost *:80>
+    ##ServerName sistema
+    ##DocumentRoot "C:/XAMPP/htdocs/sistema"
+    ##</VirtualHost>
+
+*/
+

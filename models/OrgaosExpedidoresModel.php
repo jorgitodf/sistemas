@@ -13,10 +13,10 @@ class OrgaosExpedidoresModel extends Model
         $sql = "SELECT idorgao_expedidores, orgao_expedidor FROM orgao_expedidores";
         $sql = $this->db->query($sql);
         if ($sql->rowCount() > 0) {
-            $array = $sql->fetchAll();
+            $array = $sql->fetchALL(PDO::FETCH_ASSOC);
         }
         return $array;
 
     }
-    
+
 }
