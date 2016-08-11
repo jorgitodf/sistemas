@@ -16,6 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `bairros`
+--
+
+DROP TABLE IF EXISTS `bairros`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `bairros` (
+  `idbairros` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `bairro` varchar(90) NOT NULL,
+  `id_cidades` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`idbairros`),
+  KEY `fk_bairros_cidades1_idx` (`id_cidades`) USING BTREE,
+  CONSTRAINT `fk_bairros_cidades` FOREIGN KEY (`id_cidades`) REFERENCES `cidades` (`idcidades`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `bairros`
+--
+
+LOCK TABLES `bairros` WRITE;
+/*!40000 ALTER TABLE `bairros` DISABLE KEYS */;
+/*!40000 ALTER TABLE `bairros` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `categorias`
 --
 
@@ -37,6 +63,115 @@ LOCK TABLES `categorias` WRITE;
 /*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
 INSERT INTO `categorias` VALUES (1,'Camisas'),(2,'Calças'),(3,'Sapatos'),(4,'CD\'s');
 /*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `cidades`
+--
+
+DROP TABLE IF EXISTS `cidades`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cidades` (
+  `idcidades` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `cidade` varchar(90) NOT NULL,
+  `id_ufs` tinyint(3) unsigned NOT NULL,
+  PRIMARY KEY (`idcidades`),
+  KEY `fk_cidades_ufs1_idx` (`id_ufs`) USING BTREE,
+  CONSTRAINT `fk_cidades_ufs` FOREIGN KEY (`id_ufs`) REFERENCES `ufs` (`idufs`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cidades`
+--
+
+LOCK TABLES `cidades` WRITE;
+/*!40000 ALTER TABLE `cidades` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cidades` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `enderecos`
+--
+
+DROP TABLE IF EXISTS `enderecos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `enderecos` (
+  `idenderecos` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `complemento` varchar(90) NOT NULL,
+  `numero` varchar(10) NOT NULL,
+  `cep` int(8) unsigned NOT NULL,
+  `id_usuarios` int(11) NOT NULL,
+  `id_bairros` int(10) unsigned NOT NULL,
+  `id_logradouros` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`idenderecos`),
+  KEY `fk_enderecos_usuarios1_idx` (`id_usuarios`) USING BTREE,
+  KEY `fk_enderecos_bairros1_idx` (`id_bairros`) USING BTREE,
+  KEY `fk_enderecos_logradouros1_idx` (`id_logradouros`) USING BTREE,
+  CONSTRAINT `fk_enderecos_bairros` FOREIGN KEY (`id_bairros`) REFERENCES `bairros` (`idbairros`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_enderecos_logradouros` FOREIGN KEY (`id_logradouros`) REFERENCES `logradouros` (`idlogradouros`) ON UPDATE CASCADE,
+  CONSTRAINT `fk_enderecos_usuarios` FOREIGN KEY (`id_usuarios`) REFERENCES `usuarios` (`idusuarios`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `enderecos`
+--
+
+LOCK TABLES `enderecos` WRITE;
+/*!40000 ALTER TABLE `enderecos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `enderecos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `logradouros`
+--
+
+DROP TABLE IF EXISTS `logradouros`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `logradouros` (
+  `idlogradouros` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `logradouro` varchar(90) NOT NULL,
+  `id_tp_logradouros` smallint(5) unsigned NOT NULL,
+  PRIMARY KEY (`idlogradouros`),
+  KEY `fk_logradouros_tp_logradouros1_idx` (`id_tp_logradouros`) USING BTREE,
+  CONSTRAINT `fk_logradouros_tp_logradouros` FOREIGN KEY (`id_tp_logradouros`) REFERENCES `tp_logradouros` (`idtp_logradouros`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `logradouros`
+--
+
+LOCK TABLES `logradouros` WRITE;
+/*!40000 ALTER TABLE `logradouros` DISABLE KEYS */;
+/*!40000 ALTER TABLE `logradouros` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `orgao_expedidores`
+--
+
+DROP TABLE IF EXISTS `orgao_expedidores`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `orgao_expedidores` (
+  `idorgao_expedidores` smallint(5) unsigned NOT NULL,
+  `orgao_expedidor` varchar(130) NOT NULL,
+  PRIMARY KEY (`idorgao_expedidores`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `orgao_expedidores`
+--
+
+LOCK TABLES `orgao_expedidores` WRITE;
+/*!40000 ALTER TABLE `orgao_expedidores` DISABLE KEYS */;
+/*!40000 ALTER TABLE `orgao_expedidores` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -79,7 +214,7 @@ CREATE TABLE `produtos` (
   `descricao` text NOT NULL,
   `categoria_id` int(11) NOT NULL,
   PRIMARY KEY (`idprodutos`),
-  KEY `fk_produtos_categorias_idx` (`categoria_id`),
+  KEY `fk_produtos_categorias_idx` (`categoria_id`) USING BTREE,
   CONSTRAINT `fk_produtos_categorias` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`idcategorias`) ON DELETE NO ACTION ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -105,7 +240,7 @@ CREATE TABLE `status_pagamento` (
   `idstatus_pagamento` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
   `status_pagamento` varchar(80) NOT NULL,
   PRIMARY KEY (`idstatus_pagamento`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='	';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -116,6 +251,81 @@ LOCK TABLES `status_pagamento` WRITE;
 /*!40000 ALTER TABLE `status_pagamento` DISABLE KEYS */;
 INSERT INTO `status_pagamento` VALUES (1,'Aguardando Pagamento'),(2,'Aprovado'),(3,'Cancelado');
 /*!40000 ALTER TABLE `status_pagamento` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `telefone`
+--
+
+DROP TABLE IF EXISTS `telefone`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `telefone` (
+  `idtelefone` int(11) NOT NULL AUTO_INCREMENT,
+  `ddd_tel_res` tinyint(2) unsigned NOT NULL,
+  `telefone_residencial` bigint(9) unsigned NOT NULL,
+  `ddd_tel_cel` tinyint(2) NOT NULL,
+  `telefone_celular` bigint(9) unsigned NOT NULL,
+  `id_usuarios` int(11) NOT NULL,
+  PRIMARY KEY (`idtelefone`),
+  KEY `fk_telefone_usuarios_idx` (`id_usuarios`) USING BTREE,
+  CONSTRAINT `fk_telefone_usuarios` FOREIGN KEY (`id_usuarios`) REFERENCES `usuarios` (`idusuarios`) ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `telefone`
+--
+
+LOCK TABLES `telefone` WRITE;
+/*!40000 ALTER TABLE `telefone` DISABLE KEYS */;
+/*!40000 ALTER TABLE `telefone` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tp_logradouros`
+--
+
+DROP TABLE IF EXISTS `tp_logradouros`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tp_logradouros` (
+  `idtp_logradouros` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `tp_logradouro` varchar(45) NOT NULL,
+  PRIMARY KEY (`idtp_logradouros`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tp_logradouros`
+--
+
+LOCK TABLES `tp_logradouros` WRITE;
+/*!40000 ALTER TABLE `tp_logradouros` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tp_logradouros` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ufs`
+--
+
+DROP TABLE IF EXISTS `ufs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ufs` (
+  `idufs` tinyint(3) unsigned NOT NULL AUTO_INCREMENT,
+  `uf` char(2) NOT NULL,
+  PRIMARY KEY (`idufs`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ufs`
+--
+
+LOCK TABLES `ufs` WRITE;
+/*!40000 ALTER TABLE `ufs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ufs` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -138,8 +348,8 @@ CREATE TABLE `usuarios` (
   `id_orgao_expedidores` smallint(5) unsigned NOT NULL,
   PRIMARY KEY (`idusuarios`),
   KEY `fk_usuarios_orgao_expedidores1_idx` (`id_orgao_expedidores`) USING BTREE,
-  CONSTRAINT `fk_usuarios_orgao_expedidores1` FOREIGN KEY (`id_orgao_expedidores`) REFERENCES `mydb`.`orgao_expedidores` (`idorgao_expedidores`) ON DELETE NO ACTION ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COMMENT='	';
+  CONSTRAINT `fk_usuarios_orgao_expedidores1` FOREIGN KEY (`id_orgao_expedidores`) REFERENCES `orgao_expedidores` (`idorgao_expedidores`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -226,4 +436,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-10 21:55:00
+-- Dump completed on 2016-08-11  0:02:24
