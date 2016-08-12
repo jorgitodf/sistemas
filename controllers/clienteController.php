@@ -55,7 +55,52 @@ class clienteController extends Controller {
         $dados['tipoLogradouros'] = $this->tipoLogradourosModel->getAllTipoLogradouros();
         $dados['orgaosExpedidores'] = $this->orgaosExpedidoresModel->getAllOrgaoExpedidores();
 
+        if (isset($_POST['cliente']) && empty($_POST['cliente']['nome']))
+            $dados['erroNome'] = "<span class='erro_cad_cliente'>Campo Nome Obrigatório</span>";
+        else
+            $dados['nome'] = $_POST['cliente'];
+        if (empty($_POST['cliente']['rg']))
+            $dados['erroRg'] = "<span class='erro_cad_cliente'>Campo RG Obrigatório</span>";
+        else
+            $dados['rg'] = $_POST['cliente'];
+        if (empty($_POST['cliente']['orgao_expedidor']))
+            $dados['erroOexpedidor'] = "<span class='erro_cad_cliente'>Campo Órgão Expedidor</span>";
+        else
+            $dados['orgao_expedidor'] = $_POST['cliente'];
+        if (empty($_POST['cliente']['data_nascimento']))
+           $dados['erroDtnascimento'] = "<span class='erro_cad_cliente'>Campo Data Nascimento Obrigatório</span>";
+        else
+            $dados['data_nascimento'] = $_POST['cliente'];
+        if (empty($_POST['cliente']['senha_cad']))
+            $dados['erroSenha'] = "<span class='erro_cad_cliente'>Campo Senha Obrigatório</span>";
+        else
+            $dados['senha_cad'] = $_POST['cliente'];
+        if (empty($_POST['cliente']['logradouro']))
+            $dados['erroLogradouro'] = "<span class='erro_cad_cliente'>Campo Tipo Logradouro Obrigatório</span>";
+        else
+            $dados['logradouro'] = $_POST['cliente'];
+        if (empty($_POST['cliente']['log_descricao']))
+            $dados['erroLogDescricao'] = "<span class='erro_cad_cliente'>Campo Logradouro Obrigatório</span>";
+        else
+            $dados['log_descricao'] = $_POST['cliente'];
+        if (empty($_POST['cliente']['complemento']))
+            $dados['erroComplemento'] = "<span class='erro_cad_cliente'>Campo Complemento Obrigatório</span>";
+        else
+            $dados['complemento'] = $_POST['cliente'];
+        if (empty($_POST['cliente']['numero']))
+            $dados['erroNumero'] = "<span class='erro_cad_cliente'>Campo Número Obrigatório</span>";
+        else
+            $dados['numero'] = $_POST['cliente'];
+
+
+
+
+
+
         $this->loadTemplate("clientecadastrarView", $dados);
+
+
+
     }
 
 }
