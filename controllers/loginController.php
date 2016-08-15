@@ -19,8 +19,12 @@ class loginController extends Controller {
             $senha = addslashes($_POST['senha']);
             
             if ($this->usuarioModel->isExiste($email, $senha)) {
-                $userId = $this->usuarioModel->getId($email);
-                $_SESSION['cliente'] = $userId;
+                $dadosCliente = $this->usuarioModel->verificaLoginSenha($email, $senha);
+                $_SESSION['cliente'] = array('idUser'=>'', 'nome'=>'');
+                foreach ($dadosCliente as $dados) {
+                    $_SESSION['cliente']['idUser'] = $dados['idusuarios'];
+                    $_SESSION['cliente']['nome'] = $dados['nome'];
+                }
                 header("Location: /pedidos");
             } else {
                 $dados['aviso'] = "<span class='alert alert-danger erro_categoria' role='alert'>E-mail e/ou Senha não estão corretos</span>";

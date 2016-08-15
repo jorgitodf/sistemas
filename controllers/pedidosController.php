@@ -14,7 +14,7 @@ class pedidosController extends Controller {
         $dados = array();
         
         if (isset($_SESSION['cliente']) && !empty($_SESSION['cliente'])) {
-            $dados['pedidos'] = $this->vendasModel->getPedidosUsuario($_SESSION['cliente']);
+            $dados['pedidos'] = $this->vendasModel->getPedidosUsuario($_SESSION['cliente']['idUser']);
             $this->loadTemplate('pedidosView', $dados);            
         } else {
             header("Location: /login");
@@ -26,8 +26,9 @@ class pedidosController extends Controller {
         if (!empty($id)) {
             $dados = array('idvenda' => '', 'pedido' => array());
             $id = addslashes($id);
-            $idUser = $_SESSION['cliente'];
+            $idUser = $_SESSION['cliente']['idUser'];
             $detalhes = $this->vendasModel->getPedidosUsuarioDetalhe($id, $idUser);
+            //print_r($detalhes);exit;
             if (!empty($detalhes)) {
                 foreach ($detalhes as $value) {
                     $dados['idvenda'] = $value['idvendas'];

@@ -3,7 +3,7 @@
     <div class="row-fluid">
         <h2>Identificação</h2><br/>
         <div class="div-sem-cadastro col-sm-5">
-            <form method="POST" action="" id="form-com-cadastro">
+            <form method="POST" action="../cliente/logar" id="form-com-cadastro">
                 <div class="panel panel-info">
                     <div class="panel-heading ">
                         <h3 class="panel-title">Já possuo cadastro</h3>
@@ -11,14 +11,16 @@
                     <div class="panel-body">
                         <div class="form-group">
                             <label class="" for="email">E-mail:</label>
-                            <input type="email" name="email" id="email-com-cadastro" class="form-control input-sm"/>
+                            <input type="email" name="emailCad" id="email-com-cadastro" class="form-control input-sm" value="<?php echo !empty($emailCad) ? $emailCad : '' ; ?>"/>
+                            <?php echo !empty($erroEmailCad) ? $erroEmailCad : "" ?></span>
                         </div>
                         <div class="form-group">
                             <label class="" for="senha">Senha:</label>
-                            <input type="password" name="senha" id="senha-com-cadastro" class="form-control input-sm"/>
+                            <input type="password" name="senhaCad" id="senha-com-cadastro" class="form-control input-sm" value="<?php echo !empty($senhaCad) ? $senhaCad : '' ; ?>"/>
+                            <?php echo !empty($erroSenhaCad) ? $erroSenhaCad : "" ?></span>
                         </div>
                         <div class="form-group">
-                            <button type="button" class="btn btn-primary">Acessar</button>
+                            <button type="submit" class="btn btn-primary">Acessar</button>
                         </div>
                     </div>
                 </div>

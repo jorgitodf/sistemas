@@ -14,6 +14,18 @@
 <body>
 <main>
     <header class="topo navbar-fixed-top">
+        <div class="row-fluid div_login">
+            <span><?php
+                if (!isset($_SESSION['novo_cliente']) && !isset($_SESSION['cliente'])) {
+                    echo "Olá Visitante, <a href='cliente'>faça seu login</a>";
+                } elseif (isset($_SESSION['cliente'])) {
+                    echo "Seja bem vindo, ".$_SESSION['cliente']['nome'];
+                } elseif (isset($_SESSION['novo_cliente'])) {
+                    echo "Seja bem vindo, ".$_SESSION['novo_cliente']['nome'];
+                }
+                ?>
+            </span>
+        </div>
     </header>
     <button class="menu-abrir">Abre Menu</button>
     <nav class="navbar nav navbar-inverse barra-nav nav-pills navbar-fixed-top" id="nav-menu">

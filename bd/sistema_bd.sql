@@ -29,7 +29,7 @@ CREATE TABLE `bairros` (
   PRIMARY KEY (`idbairros`),
   KEY `fk_bairros_cidades1_idx` (`id_cidades`) USING BTREE,
   CONSTRAINT `fk_bairros_cidades` FOREIGN KEY (`id_cidades`) REFERENCES `cidades` (`idcidades`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +38,7 @@ CREATE TABLE `bairros` (
 
 LOCK TABLES `bairros` WRITE;
 /*!40000 ALTER TABLE `bairros` DISABLE KEYS */;
+INSERT INTO `bairros` VALUES (1,'Sobradinho',1),(2,'Sobradinho',2),(3,'Dos Céus',3);
 /*!40000 ALTER TABLE `bairros` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -79,7 +80,7 @@ CREATE TABLE `cidades` (
   PRIMARY KEY (`idcidades`),
   KEY `fk_cidades_ufs1_idx` (`id_ufs`) USING BTREE,
   CONSTRAINT `fk_cidades_ufs` FOREIGN KEY (`id_ufs`) REFERENCES `ufs` (`idufs`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,6 +89,7 @@ CREATE TABLE `cidades` (
 
 LOCK TABLES `cidades` WRITE;
 /*!40000 ALTER TABLE `cidades` DISABLE KEYS */;
+INSERT INTO `cidades` VALUES (1,'Brasília',7),(2,'Brasília',7),(3,'Brasília',7);
 /*!40000 ALTER TABLE `cidades` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -113,7 +115,7 @@ CREATE TABLE `enderecos` (
   CONSTRAINT `fk_enderecos_bairros` FOREIGN KEY (`id_bairros`) REFERENCES `bairros` (`idbairros`) ON UPDATE CASCADE,
   CONSTRAINT `fk_enderecos_logradouros` FOREIGN KEY (`id_logradouros`) REFERENCES `logradouros` (`idlogradouros`) ON UPDATE CASCADE,
   CONSTRAINT `fk_enderecos_usuarios` FOREIGN KEY (`id_usuarios`) REFERENCES `usuarios` (`idusuarios`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,6 +124,7 @@ CREATE TABLE `enderecos` (
 
 LOCK TABLES `enderecos` WRITE;
 /*!40000 ALTER TABLE `enderecos` DISABLE KEYS */;
+INSERT INTO `enderecos` VALUES (1,'xxxxxxxxx','12',45000000,13,3,3);
 /*!40000 ALTER TABLE `enderecos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -139,7 +142,7 @@ CREATE TABLE `logradouros` (
   PRIMARY KEY (`idlogradouros`),
   KEY `fk_logradouros_tp_logradouros1_idx` (`id_tp_logradouros`) USING BTREE,
   CONSTRAINT `fk_logradouros_tp_logradouros` FOREIGN KEY (`id_tp_logradouros`) REFERENCES `tp_logradouros` (`idtp_logradouros`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,6 +151,7 @@ CREATE TABLE `logradouros` (
 
 LOCK TABLES `logradouros` WRITE;
 /*!40000 ALTER TABLE `logradouros` DISABLE KEYS */;
+INSERT INTO `logradouros` VALUES (1,'16 Conjunto A',32),(2,'16 Conjunto A',32),(3,'xxxxxxxxxxx',11);
 /*!40000 ALTER TABLE `logradouros` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -271,7 +275,7 @@ CREATE TABLE `telefone` (
   PRIMARY KEY (`idtelefone`),
   KEY `fk_telefone_usuarios_idx` (`id_usuarios`) USING BTREE,
   CONSTRAINT `fk_telefone_usuarios` FOREIGN KEY (`id_usuarios`) REFERENCES `usuarios` (`idusuarios`) ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -280,6 +284,7 @@ CREATE TABLE `telefone` (
 
 LOCK TABLES `telefone` WRITE;
 /*!40000 ALTER TABLE `telefone` DISABLE KEYS */;
+INSERT INTO `telefone` VALUES (1,61,33871089,61,998183834,13);
 /*!40000 ALTER TABLE `telefone` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -352,7 +357,7 @@ CREATE TABLE `usuarios` (
   PRIMARY KEY (`idusuarios`),
   KEY `fk_usuarios_orgao_expedidores1_idx` (`id_orgao_expedidores`) USING BTREE,
   CONSTRAINT `fk_usuarios_orgao_expedidores1` FOREIGN KEY (`id_orgao_expedidores`) REFERENCES `orgao_expedidores` (`idorgao_expedidores`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -361,7 +366,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (1,'Jorgito',00000000000,'jorgito@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(2,'Jorge Toledo',00000000000,'jorge@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(3,'Jorgito',00000000000,'jspaiva.1977@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(4,'Thadeu',00000000000,'exemplo@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(5,'Thadeu',00000000000,'siscadcons@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(6,'Carlos',00000000000,'algumemail@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(7,'Comprador',00000000000,'comprador@gmail.com','e10adc3949ba59abbe56e057f20f883e','Cliente',NULL,NULL,NULL,0),(8,'Cláudio',00000000000,'claudio@gmail.com','e10adc3949ba59abbe56e057f20f883e','Admin',NULL,NULL,NULL,0),(9,'Admin',00000000000,'admin@gmail.com','e10adc3949ba59abbe56e057f20f883e','Admin',NULL,NULL,NULL,0),(10,'Jorgito',80260276120,'454545454@gmail.com','e10adc3949ba59abbe56e057f20f883e','Cliente',NULL,NULL,NULL,0);
+INSERT INTO `usuarios` VALUES (1,'Jorgito',00000000000,'jorgito@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(2,'Jorge Toledo',00000000000,'jorge@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(3,'Jorgito',00000000000,'jspaiva.1977@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(4,'Thadeu',00000000000,'exemplo@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(5,'Thadeu',00000000000,'siscadcons@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(6,'Carlos',00000000000,'algumemail@gmail.com','123456','Cliente',NULL,NULL,NULL,0),(7,'Comprador',00000000000,'comprador@gmail.com','e10adc3949ba59abbe56e057f20f883e','Cliente',NULL,NULL,NULL,0),(8,'Cláudio',00000000000,'claudio@gmail.com','e10adc3949ba59abbe56e057f20f883e','Admin',NULL,NULL,NULL,0),(9,'Admin',00000000000,'admin@gmail.com','e10adc3949ba59abbe56e057f20f883e','Admin',NULL,NULL,NULL,0),(10,'Jorgito',80260276120,'454545454@gmail.com','e10adc3949ba59abbe56e057f20f883e','Cliente',NULL,NULL,NULL,0),(11,'Jorgito Paiva',80260276121,'jspaiva@gmail.com','e10adc3949ba59abbe56e057f20f883e','Cliente','1544826','1977-06-17','2016-08-15 15:11:06',91),(12,'Jorgito Paiva',80260276121,'js@gmail.com','e10adc3949ba59abbe56e057f20f883e','Cliente','1544826','1977-06-17','2016-08-15 15:12:57',91),(13,'João da Silva Paiva',80260276121,'joaosilva@gmail.com','bad233ec022d3a9cdd6f54aa09c3f3d4','Cliente','890890','1980-12-12','2016-08-15 15:16:14',81);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -396,7 +401,7 @@ CREATE TABLE `vendas` (
 
 LOCK TABLES `vendas` WRITE;
 /*!40000 ALTER TABLE `vendas` DISABLE KEYS */;
-INSERT INTO `vendas` VALUES (1,'Quadra 16',240,1,0,2,'/carrinho/obrigado'),(2,'Quadra 16',240,1,0,2,'/carrinho/obrigado'),(3,'Quadra 16',240,1,0,2,'/carrinho/obrigado'),(4,'Quadra 16',240,1,0,2,'/carrinho/obrigado'),(5,'Quadra 19',240,1,0,2,'/carrinho/obrigado'),(6,'Quadra 16',80,1,0,2,'/carrinho/obrigado'),(7,'Quadra 16',440,2,0,1,''),(8,'Quadra 16',225,2,0,1,''),(9,'Algum endereço',230,2,0,1,''),(10,'Algum endereço',240,2,0,1,''),(11,'Alguem endereço',80,2,8,1,''),(12,'Algum endereço',170,2,8,1,''),(13,'Algum endereço',90,1,7,2,''),(14,'Quadra 14',170,1,8,2,''),(15,'Algum',350,1,7,2,''),(16,'Quadra 16',95,1,10,2,'');
+INSERT INTO `vendas` VALUES (1,'Quadra 16',240,1,8,2,'/carrinho/obrigado'),(2,'Quadra 16',240,1,8,2,'/carrinho/obrigado'),(3,'Quadra 16',240,1,8,2,'/carrinho/obrigado'),(4,'Quadra 16',240,1,8,2,'/carrinho/obrigado'),(5,'Quadra 19',240,1,8,2,'/carrinho/obrigado'),(6,'Quadra 16',80,1,8,2,'/carrinho/obrigado'),(7,'Quadra 16',440,2,8,1,''),(8,'Quadra 16',225,2,8,1,''),(9,'Algum endereço',230,2,8,1,''),(10,'Algum endereço',240,2,8,1,''),(11,'Alguem endereço',80,2,8,1,''),(12,'Algum endereço',170,2,8,1,''),(13,'Algum endereço',90,1,7,2,''),(14,'Quadra 14',170,1,8,2,''),(15,'Algum',350,1,7,2,''),(16,'Quadra 16',95,1,10,2,'');
 /*!40000 ALTER TABLE `vendas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -426,7 +431,7 @@ CREATE TABLE `vendas_produtos` (
 
 LOCK TABLES `vendas_produtos` WRITE;
 /*!40000 ALTER TABLE `vendas_produtos` DISABLE KEYS */;
-INSERT INTO `vendas_produtos` VALUES (1,13,1,1),(2,15,2,1),(3,15,14,1),(4,15,15,1),(5,11,3,1),(6,12,16,1),(7,14,19,1),(8,0,0,1),(9,0,0,1),(10,0,0,1),(11,0,0,1),(12,0,0,1),(13,0,0,1),(14,0,0,1),(15,0,0,1),(16,0,0,1),(17,0,0,1),(18,0,0,1),(19,0,0,1),(20,0,0,1),(21,0,0,1),(22,0,0,1),(23,0,0,1),(24,0,0,1),(25,0,0,1),(26,0,0,1),(27,0,0,1),(28,0,0,1),(29,16,14,1);
+INSERT INTO `vendas_produtos` VALUES (1,13,1,1),(2,15,2,1),(3,15,14,1),(4,15,15,1),(5,11,3,1),(6,12,16,1),(7,14,19,1),(8,0,0,1),(9,0,0,1),(10,0,0,1),(11,0,0,1),(12,0,0,1),(13,0,0,1),(14,0,0,1),(15,0,0,1),(16,0,0,1),(17,0,0,1),(18,0,0,1),(19,0,0,1),(20,0,0,1),(21,0,0,1),(22,0,0,1),(23,0,0,1),(24,0,0,1),(25,6,3,1),(26,7,3,1),(27,8,3,1),(28,9,3,1),(29,16,14,1);
 /*!40000 ALTER TABLE `vendas_produtos` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -439,4 +444,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-11 17:12:50
+-- Dump completed on 2016-08-15 17:24:38

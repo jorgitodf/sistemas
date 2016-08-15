@@ -74,6 +74,10 @@ class carrinhoController extends Controller {
     public function finalizar() {
         $dados = array();
 
+        if (isset($_SESSION['cliente']) || isset($_SESSION['novo_cliente'])) {
+            echo "Existe uma sessão -> Ir para a view finalizar compra";exit;
+        }
+
         $this->loadTemplate("identificacaoView", $dados);
     }
 
