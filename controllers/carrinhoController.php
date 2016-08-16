@@ -72,13 +72,31 @@ class carrinhoController extends Controller {
     }
 
     public function finalizar() {
-        $dados = array();
+        $dados = array(
+            'total' => 0,
+            'sessionId' => '',
+            'erro' => '',
+            'produtos' => array()
+        );
+        require 'libraries/PagSeguroLibrary/PagSeguroLibrary.php';
 
+        $prods = array();
+        if(isset($_SESSION['carrinho'])) {
+            $prods = $_SESSION['carrinho'];
+        }
+        if(count($prods) > 0) {
+            $dados['produtos'] = $this->produtoModel->get_produtos_by_id($prods);
+            foreach($dados['produtos'] as $prod) {
+                $dados['total'] += $prod['preco'];
+            }
+        }
+        /*echo "<pre>";
+        print_r($dados['total']);exit;
         if (isset($_SESSION['cliente']) || isset($_SESSION['novo_cliente'])) {
             echo "Existe uma sessão -> Ir para a view finalizar compra";exit;
-        }
+        } */
 
-        $this->loadTemplate("identificacaoView", $dados);
+        $this->loadTemplate("finalizarView", $dados);
     }
 
     public function obrigado() {

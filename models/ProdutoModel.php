@@ -58,6 +58,19 @@ class ProdutoModel extends Model {
         return $array;
     }
 
+    public function get_produtos_by_id($prods = array()) {
+        $array = array();
+        $ids = array_keys($prods);
+        if(is_array($prods) && count($prods) > 0) {
+            $sql = "SELECT * FROM produtos WHERE idprodutos IN (".implode(',', $ids).")";
+            $sql = $this->db->query($sql);
+            if($sql->rowCount() > 0) {
+                $array = $sql->fetchALL(PDO::FETCH_ASSOC);
+            }
+        }
+        return $array;
+    }
+
 
 
     
