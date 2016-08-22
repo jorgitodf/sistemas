@@ -11,3 +11,8 @@ extract($variaveis );
 
 // Imprime as variáveis
 echo $nome . $sobrenome;
+
+
+
+
+

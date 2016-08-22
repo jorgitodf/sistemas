@@ -95,7 +95,16 @@ class carrinhoController extends Controller {
         if (isset($_SESSION['cliente']) || isset($_SESSION['novo_cliente'])) {
             echo "Existe uma sessão -> Ir para a view finalizar compra";exit;
         } */
+        if(isset($_POST['pg_form']) && !empty($_POST['pg_form'])) {
 
+        } else {
+            try {
+                $credentials = PagSeguroConfig::getAccountCredentials();
+                $dados['sessionId'] = PagSeguroSessionService::getSession($credentials);
+            } catch(PagSeguroServiceException $e) {
+                die($e->getMessage());
+            }
+        }
         $this->loadTemplate("finalizarView", $dados);
     }
 
@@ -107,6 +116,6 @@ class carrinhoController extends Controller {
     public function notificacao() {
         $vendas = $this->vendasModel;
         $vendas->verificarVendas();
-        $this->loadTemplate("obrigadoView", $dados);
+        $this->loadTemplate("obrigadoView");
     }
 }

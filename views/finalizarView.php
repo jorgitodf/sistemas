@@ -13,6 +13,7 @@
             <option value="BOLETO">Boleto</option>
             <option value="BALANCE">Saldo Pagseguro</option>
         </select>
+        <br/>
         <div id="cc" style="display:none">
             Qual a bandeira do seu cartão?<br/>
             <div id="bandeiras"></div>
