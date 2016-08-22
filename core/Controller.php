@@ -6,6 +6,7 @@ class Controller {
   
     public function __construct() {
         global $config;
+        //print_r($config);exit;
 		try {
 			$this->db = new PDO("mysql:dbname=".$config['dbname'].";host=".$config['host'], $config['dbuser'], $config['dbpass']);
 		} catch (PDOException $ex) {

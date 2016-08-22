@@ -1,5 +1,5 @@
    
-    <aside class="row-fluid container container-mostra-categoria col-md-12 col-lg-12 col-sm-10 col-xs-12">
+    <aside class="row-fluid container container-mostra-categoria col-md-12 col-lg-12 col-sm-12 col-xs-12">
         <div class="row row-mostra-categoria">
         <h2><?php echo $categoria; ?></h2>
             <div class="col-xs-12 col-md-12 col-sm-12 div-prod-mostra">

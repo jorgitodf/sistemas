@@ -1,5 +1,5 @@
 
-    <aside class="row-fluid container container-contato col-md-12 col-lg-12 col-sm-8 col-xs-12">
+    <aside class="row-fluid container container-contato col-md-12 col-lg-12 col-sm-12 col-xs-12">
         <div class="row-fluid col-xs-12">
         <h2>Contato</h2>
         <form method="POST" action="">
@@ -17,7 +17,7 @@
             </div>
             <div class="msg-email-sucesso col-xs-12">
                 <?php if(!empty($msg)):?>
-                    <span class="alert alert-success"><?php echo $msg; ?></span>
+                    <span class="alert alert-success" id="alert-msg-email-sucesso"><?php echo $msg; ?></span>
                 <?php endif;?>
 
             </div>

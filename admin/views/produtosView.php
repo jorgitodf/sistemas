@@ -33,8 +33,8 @@
                 </tbody>    
             </table>
             <?php $conta = ceil($total_produtos / $limite_produtos);
-            for ($index = 1; $index <= $conta; $index++): ?>
-            <a href="/admin/produtos?p=<?php echo $index; ?>"><?php echo $index; ?></a>    
+                for ($index = 1; $index <= $conta; $index++): ?>
+                <a href="/admin/produtos?p=<?php echo $index; ?>"><?php echo $index; ?></a>
             <?php endfor; ?>
         </div>    
     </aside>

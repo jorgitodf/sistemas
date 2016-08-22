@@ -16,7 +16,7 @@
                 if (!isset($_SESSION['novo_cliente']) && !isset($_SESSION['cliente'])) {
                     echo "Olá Visitante, <a href='../cliente'>faça seu login</a>";
                 } elseif (isset($_SESSION['cliente'])) {
-                    echo "Seja bem vindo, ".utf8_encode($_SESSION['cliente']['nome']);
+                    echo "Seja bem vindo, ".$_SESSION['cliente']['nome'];
                 } elseif (isset($_SESSION['novo_cliente'])) {
                     echo "Seja bem vindo, ".utf8_encode($_SESSION['novo_cliente']['nome'])  ;
                 }
@@ -43,7 +43,7 @@
                 <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
                 <li><a href="/empresa">Empresa</a></li>
                 <?php foreach($menu as $menuitem): ?>
-                <li><a href="/categoria/ver/<?php echo $menuitem['idcategorias']; ?>"><?php echo utf8_encode($menuitem['nome_categoria']); ?></a></li>
+                <li><a href="/categoria/ver/<?php echo $menuitem['idcategorias']; ?>"><?php echo $menuitem['nome_categoria']; ?></a></li>
                 <?php endforeach; ?>
                 <li><a href="/contato">Contato</a></li>
                 <li><a href="/pedidos">Pedidos</a></li>

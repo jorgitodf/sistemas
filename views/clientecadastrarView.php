@@ -105,7 +105,6 @@
                     <select class="form-control input-sm" name="cliente[uf]" id="uf">
                         <option></option>
                         <?php foreach ($ufs as $uf): ?>
-                            <option value="<?php echo $uf['idufs']; ?>"><?php echo $uf['uf']; ?></option>
                             <option <?php echo (isset($nome['uf']) && $uf['idufs'] == $nome['uf'] ? 'selected="selected"' : '') ?> value="<?php echo $uf['idufs']; ?>"><?php echo $uf['uf']; ?></option>
                         <?php endforeach; ?>
                     </select>

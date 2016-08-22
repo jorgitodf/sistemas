@@ -102,10 +102,10 @@
     }
 
     .container-empresa {
-        width: 100%;
+        width: 105%;
         height: 100%;
-        margin-left: auto;
-        left: auto;
+        margin-left: 9%;
+        left: 9%;
         margin-top: 15%;
     }
     .row-empresa {
@@ -118,18 +118,15 @@
         background: linear-gradient(to right, rgba(226,226,226,1) 0%, rgba(209,209,209,1) 0%, rgba(254,254,254,1) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe', GradientType=1 );
         box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-        width: 100%;
-        height: 410px;
-        position: absolute;
-        left: 11%;
+        width: 105%;
+        height: 405px;
     }
 
     .container-mostra-categoria {
-        width: 100%;
-        height: 600px;
-        left: 9%;
+        width: 110%;
         margin-left: 9%;
-        margin-top: 20%;
+        left: 9%;
+        margin-top: 15%;
     }
     .row-mostra-categoria {
         background: rgba(226,226,226,1);
@@ -141,14 +138,19 @@
         background: linear-gradient(to right, rgba(226,226,226,1) 0%, rgba(209,209,209,1) 0%, rgba(254,254,254,1) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe', GradientType=1 );
         box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+        height: 370px;
     }
-    .div-prod-mostra {
-        margin-left: auto;
-    }
+
     .img-prod-categoria {
         height: 230px;
         width: 170px;
+        float: left;
+        margin-left: 3.3%;
     }
+    .tam-img-ver-categoria {
+
+    }
+
 
     .container-produto_categoria_mostra {
         width: 110%;
@@ -213,9 +215,9 @@
 
 
     .container-contato {
-        width: 100%;
-        margin-left: 10%;
-        left: 10%;
+        width: 110%;
+        margin-left: 9%;
+        left: 9%;
         margin-top: 15%;
         background: rgba(226,226,226,1);
         background: -moz-linear-gradient(left, rgba(226,226,226,1) 0%, rgba(209,209,209,1) 0%, rgba(254,254,254,1) 100%);
@@ -395,7 +397,7 @@
         position: absolute;
         right: 9%;
         left: 9%;
-        margin-top: 9%;
+        margin-top: 13%;
         margin-left: 9%;
         margin-right: 9%;
     }
@@ -534,7 +536,11 @@
     .cabecalho {text-align: left}
 
     .msg-email-sucesso {
-        float: right;
+        margin-left: 78%;
+        margin-top: -4%;
+    }
+    #alert-msg-email-sucesso {
+        background-color: #7EFC7E;
     }
     .btn-deslogar {
         float: right;
@@ -694,6 +700,7 @@
     .div-prod-mostra {
         padding: auto;
         margin-left: 1%;
+
     }
     .img-prod-categoria {
         height: 220px;
