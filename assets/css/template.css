@@ -1,4 +1,6 @@
-@media (min-width: 1360px) {
+@charset "utf-8";
+
+@media (max-width: 1438px) {
     main {
         width: 100%;
     }
@@ -536,8 +538,9 @@
     .cabecalho {text-align: left}
 
     .msg-email-sucesso {
-        margin-left: 78%;
         margin-top: -4%;
+        margin-left: 59.8%;
+        text-align: right;
     }
     #alert-msg-email-sucesso {
         background-color: #7EFC7E;
@@ -569,6 +572,12 @@
     }
     #table-carrinho td {
         padding: 10px;
+    }
+    .div_login {
+        padding: 0;
+        width: 20%;
+        float: right;
+        margin-top: 5%;
     }
     .topo {
         height: 100px;
@@ -654,12 +663,11 @@
 
 
     .container-empresa {
-        width: 110%;
+        width: 120%;
         height: 530px;
-        position: absolute;
         margin-left: 10.5%;
         left: 10.5%;
-        margin-top: 0;
+        margin-top: 16%;
     }
     .row-empresa {
         background: rgba(226,226,226,1);
@@ -768,18 +776,19 @@
         background: linear-gradient(to right, rgba(226,226,226,1) 0%, rgba(209,209,209,1) 0%, rgba(254,254,254,1) 100%);
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe', GradientType=1 );
         box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-        width: 110%;
-        height: 520px;
-        position: absolute;
+        width: 100%;
         margin-left: 10.5%;
         left: 10.5%;
         margin-top: 16%;
     }
     .msg-email-sucesso {
-        width: 10%;
-        margin-top: -3.5%;
-        margin-left: 40%;
-        text-align: center;
+        width: 1px;
+        margin-top: -4%;
+        margin-left: 59.5%;
+        text-align: right;
+    }
+    #alert-msg-email-sucesso {
+        background-color: #7EFC7E;
     }
 
     .container-resumo-pedido {

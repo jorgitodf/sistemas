@@ -13,7 +13,7 @@ if (ENVIRONMENT == 'development' && $hostname == 'JORGITO-NB') {
     $config['dbpass'] = '!Camelo69';
 	$config['ambiente'] = ENVIRONMENT;
 	$config['hostname'] = $hostname;
-} elseif (ENVIRONMENT == 'development' && $hostname == 'JORGITO-PC') {
+} elseif (ENVIRONMENT == 'development' && $hostname == 'Jorgito') {
     $config['dbname'] = 'sistema';
     $config['host'] = 'localhost';
     $config['dbuser'] = 'root';

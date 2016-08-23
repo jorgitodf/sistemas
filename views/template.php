@@ -14,7 +14,7 @@
         <div class="row-fluid div_login">
             <span><?php
                 if (!isset($_SESSION['novo_cliente']) && !isset($_SESSION['cliente'])) {
-                    echo "Olá Visitante, <a href='../cliente'>faça seu login</a>";
+                    echo "Olá Visitante, <a href='/cliente'>faça seu login</a>";
                 } elseif (isset($_SESSION['cliente'])) {
                     echo "Seja bem vindo, ".$_SESSION['cliente']['nome'];
                 } elseif (isset($_SESSION['novo_cliente'])) {
@@ -60,6 +60,8 @@
 
     <section class="row-fluid col-md-10 col-xs-12">
         <?php $this->loadViewInTemplate($viewName, $viewData); ?>
+        <p>Suas coordenadas são: <span id="coordenadas"></span></p>
+        <div id="mapa"></div>
     </section>
 
     <footer>
@@ -67,8 +69,10 @@
 
 </main>
 
-<script src="/assets/js/bootstrap.min.js"></script>
+
 <script src="/assets/js/jquery-3.1.0.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+<!-- <script src="/assets/js/geolocation.js"></script>-->
 <!-- <script src="/assets/js/carrinho.js"></script> -->
 <!-- <script src="/assets/js/menu.js"></script> -->
 

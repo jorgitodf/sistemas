@@ -15,7 +15,7 @@
 
                 <input type="submit" value="Enviar Mensagem" class="btn btn-primary"/>
             </div>
-            <div class="msg-email-sucesso col-xs-12">
+            <div class="msg-email-sucesso col-xs-5">
                 <?php if(!empty($msg)):?>
                     <span class="alert alert-success" id="alert-msg-email-sucesso"><?php echo $msg; ?></span>
                 <?php endif;?>
